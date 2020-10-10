@@ -5,7 +5,7 @@ echo -n "请输入 keystore 文件名，形如UTC--1970-01-01T13-16-00.690221616
 read keystore
 echo -n "请输入 NUCYPHER_KEYRING_PASSWORD: "
 read keyring_password
-cd /root/NuCypher-Helper && bash worker_bond.sh
+cd /root/NuCypher-Helper/testnet && bash worker_bond.sh
 cd ~
 echo "执行：nucypher ursula init --signer keystore:///$HOME/ethereum/keystore --provider $infura"
 nucypher ursula init --signer keystore:///$HOME/ethereum/keystore --provider $infura
