@@ -12,9 +12,8 @@ sudo apt-get install software-properties-common -y
 sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get install ethereum -y
 cd /root/ && mkdir ethereum
-nohup geth --rinkeby --syncmode "fast" --datadir "/root/ethereum/" --cache=512 >/dev/null 2>&1 &
+echo "运行eth节点，light模式"
+nohup geth --rinkeby --syncmode "light" --datadir "/root/ethereum/" --cache=512 >/dev/null 2>&1 &
+echo "创建worker地址"
 echo -e "$ALLINONEPWD\n$ALLINONEPWD" | geth --datadir /root/ethereum/ account new
-export NUCYPHER_KEYRING_PASSWORD=$ALLINONEPWD && export NUCYPHER_WORKER_ETH_PASSWORD=$ALLINONEPWD
-echo -e '0\ny\n' | nucypher ursula init --provider ipc:/root/ethereum/geth.ipc --poa --network ibex
-nohup nucypher ursula run --provider ipc:/root/ethereum/geth.ipc --poa --network ibex > ursula_worker.log 2>&1 &
 geth attach ipc:/root/ethereum/geth.ipc
