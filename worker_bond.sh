@@ -2,7 +2,6 @@
 cd $HOME
 echo -n "NUCYPHER_KEYRING_PASSWORD: "
 read NUCYPHER_KEYRING_PASSWORD
-source nucypher-venv/bin/activate
 export NUCYPHER_KEYRING_PASSWORD=$NUCYPHER_KEYRING_PASSWORD
 nucypher stake init-stakeholder --provider ipc:/root/ethereum/geth.ipc --poa --network ibex
 echo "发送质押NU交易"
