@@ -4,7 +4,7 @@ read ALLINONEPWD
 cd $HOME
 sudo apt update
 sudo apt upgrade -y
-sudo apt install python3-dev build-essential libffi-dev python3-pip python3-venv -y
+sudo apt install python3-dev build-essential libffi-dev python3-pip -y
 pip3 install -U wheel
 pip3 install -U nucypher
 sudo apt-get update && sudo apt update
