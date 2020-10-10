@@ -15,4 +15,5 @@ sudo mv nucypher.txt /etc/systemd/system/nucypher.service
 sudo systemctl daemon-reload
 sudo systemctl enable nucypher
 sudo systemctl start nucypher
-
+echo "kill geth节点进程"
+ps ajfx|grep geth|grep -v grep|awk '{print $2}'|xargs kill
