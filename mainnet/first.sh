@@ -16,4 +16,6 @@ echo "运行eth节点，light模式"
 nohup geth --syncmode "light" --datadir "/root/ethereum/" --cache=512 >/dev/null 2>&1 &
 echo "创建worker地址"
 echo -e "$ALLINONEPWD\n$ALLINONEPWD" | geth --datadir /root/ethereum/ account new
+echo "kill geth节点进程"
+ps ajfx|grep geth|grep -v grep|awk '{print $2}'|xargs kill
 
