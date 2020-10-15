@@ -9,7 +9,7 @@ cd ~
 echo "执行：nucypher ursula init --signer keystore:///$HOME/ethereum/keystore --provider $infura"
 nucypher ursula init --signer keystore:///$HOME/ethereum/keystore --provider $infura
 echo "启动 nucypher.service"
-echo -e "[Unit]\nDescription="NuCypher Node"\n[Service]\nUser=$USER\nType=simple\nEnvironment="NUCYPHER_WORKER_ETH_PASSWORD=$keyring_password"\nEnvironment="NUCYPHER_KEYRING_PASSWORD=$keyring_password"\nExecStart=/usr/local/bin/nucypher ursula run\nRestart=always\nRestartSec=3\n[Install]\nWantedBy=multi-user.target" > nucypher.txt
+echo -e "[Unit]\nDescription="NuCypher Node"\n[Service]\nUser=$USER\nType=simple\nEnvironment="NUCYPHER_WORKER_ETH_PASSWORD=$keyring_password"\nEnvironment="NUCYPHER_KEYRING_PASSWORD=$keyring_password"\nExecStart=/usr/local/bin/nucypher ursula run --teacher mainnet.nucypher.network:9151\nRestart=always\nRestartSec=3\n[Install]\nWantedBy=multi-user.target" > nucypher.txt
 sudo mv nucypher.txt /etc/systemd/system/nucypher.service
 sudo systemctl daemon-reload
 sudo systemctl enable nucypher
